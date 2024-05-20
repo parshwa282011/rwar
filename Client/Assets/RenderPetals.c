@@ -1535,6 +1535,16 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id, uint8_t fl
             rr_renderer_bezier_curve_to(renderer, -6.70, 5.37, -2.75, 4.53, 0.21, 6.45);
             rr_renderer_fill(renderer);
             break;
+        case rr_petal_id_stone:
+            rr_renderer_set_fill(renderer, 0x464646);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_move_to(renderer, 25.0, 25.0);
+            rr_renderer_line_to(renderer, -25.0, 25.0);
+            rr_renderer_line_to(renderer, -25.0, -25.0);
+            rr_renderer_line_to(renderer, 25.0, -25.0);
+            rr_renderer_line_to(renderer, 25.0, 25.0);
+            rr_renderer_fill(renderer);
+            break;
         default:
             break;
         }
