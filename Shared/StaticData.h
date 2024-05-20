@@ -112,6 +112,7 @@ enum rr_petal_id
     rr_petal_id_gold,
     rr_petal_id_rice,
     rr_petal_id_horn,
+    rr_petal_id_stone,
     rr_petal_id_max
 };
 
@@ -140,6 +141,7 @@ enum rr_mob_id
     rr_mob_id_dragonfly,
     rr_mob_id_hornet,
     rr_mob_id_house_centipede,
+    rr_mob_id_stone,
     rr_mob_id_max
 };
 

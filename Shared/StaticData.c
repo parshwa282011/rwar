@@ -61,14 +61,14 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_gold,      rr_rarity_id_unusual,   offensive,  22.5f, 135.0f, 10.0f,  115, 0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_rice,      rr_rarity_id_common,    offensive,  1.0f,  0.5f,   0.0f,   10,  0, {1,1,1,1,1,1,1,3}},
     {rr_petal_id_horn,      rr_rarity_id_common,    offensive,  5.0f,  18.0f,  0.0f,   65,  0, {1,1,1,1,1,1,1,3}},
-
+    {rr_petal_id_stone,     rr_rarity_id_common,    offensive,  5.0f,  18.0f,  0.0f,   65,  0, {1,1,1,1,2,2,3,5}}
 };    
 
 char const *RR_PETAL_NAMES[rr_petal_id_max] = {
     "Secret", "Petal", "Pellet", "Fossil",   "Stinger",  "Berries", "Shell",
     "Peas",   "Leaf",  "Egg",    "Magnet", "Uranium", "Feather", "Azalea",
     "Bone",   "Web",   "Seed",   "Gravel", "Club", "Crest", "Droplet",
-    "Beak", "Lightning", "Third Eye", "Mandible", "Wax", "Sand", "Mint", "Cactus", "Gold", "Rice", "Horn"};
+    "Beak", "Lightning", "Third Eye", "Mandible", "Wax", "Sand", "Mint", "Cactus", "Gold", "Rice", "Horn", "Stone"};
     
 char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     0,
@@ -102,7 +102,8 @@ char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     "Ouch! Prickly hug. Stacks diminishingly.",
     "A beacon of wealth.",
     "Highest DPS in the game, If you know how to use it.",
-    "Give it back!"
+    "Give it back!",
+    "Hard"
 };
 
 struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
@@ -140,6 +141,8 @@ struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
     {rr_mob_id_portal_garden,      rr_rarity_id_common, rr_rarity_id_ultimate,   500, 0, 30.0f, {}},
     {rr_mob_id_portal_ocean,       rr_rarity_id_common, rr_rarity_id_ultimate,   500, 0, 30.0f, {}},
     {rr_mob_id_portal_hell_creek,  rr_rarity_id_common, rr_rarity_id_ultimate,   500, 0, 30.0f, {}},
+    // Custom mobs Parshwa made
+    {rr_mob_id_stone,              rr_rarity_id_common, rr_rarity_id_ultimate,   100, 5, 30.0f, {{rr_petal_id_stone, 0.1},{rr_petal_id_fossil, 0.1},{rr_petal_id_gold, 0.1}}}
 };
 
 char const *RR_MOB_NAMES[rr_mob_id_max] = {
@@ -148,7 +151,7 @@ char const *RR_MOB_NAMES[rr_mob_id_max] = {
 "Quetzalcoatlus","Edmontosaurus","Ant","Hornet","Dragonfly",
 "Honeybee","Beehive","Spider","House Centipede",
 "Kelp","Seagull","King Mackarel","Sea Snail",
-"Garden Portal", "Ocean Portal", "Hell Creek Portal"
+"Garden Portal", "Ocean Portal", "Hell Creek Portal", "Stone"
 };
 
 uint32_t RR_MOB_DIFFICULTY_COEFFICIENTS[rr_mob_id_max] = {
