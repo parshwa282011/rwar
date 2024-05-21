@@ -53,7 +53,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 30.0f,   8.0f,   0.0f,  75, 13, {1,1,1,1,1,2,3,3}},
     {rr_petal_id_peas,      rr_rarity_id_rare,      offensive, 15.0f,   8.0f,   8.0f,  13, 12, {4,4,4,4,4,4,5,5}},
     {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  9.0f,  15.0f,   8.0f,  38,  0, {1,1,1,1,1,2,2,2}},
-    {rr_petal_id_egg,       rr_rarity_id_unusual,   defensive,  1.0f,  20.0f,   0.0f,  25, 75, {1,1,2,2,2,2,2,2}},
+    {rr_petal_id_egg,       rr_rarity_id_unusual,   defensive,  1.0f,  20.0f,   0.0f,  25, 75, {10,10,10,10,10,10,10,10}},
     {rr_petal_id_magnet,    rr_rarity_id_rare,      defensive,  2.0f,  15.0f,   0.0f,  38,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_uranium,   rr_rarity_id_rare,      offensive, 12.0f,  10.0f,   0.0f,  50, 25, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_feather,   rr_rarity_id_common,    defensive,  1.0f,   3.0f,   0.0f,  25,  0, {1,1,1,1,1,1,1,1}},
@@ -72,13 +72,14 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_wax,       rr_rarity_id_unusual,   offensive,  5.0f,  10.0f,  10.0f,  75,  0, {2,2,2,2,2,2,2,2}},
     {rr_petal_id_sand,      rr_rarity_id_common,    offensive, 15.0f,  10.0f,  10.0f,  37,  0, {4,4,4,4,4,4,4,4}},
     {rr_petal_id_mint,      rr_rarity_id_unusual,   offensive,  5.0f,  10.0f,  10.0f,  50, 25, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_stone,     rr_rarity_id_common,    offensive, 10.0f,  60.0f,   0.0f, 100,  0, {1,2,3,4,5,6,7,8}},
 };    
 
 char const *RR_PETAL_NAMES[rr_petal_id_max] = {
     "Secret", "Petal", "Pellet", "Fossil",   "Stinger",  "Berries", "Shell",
     "Peas",   "Leaf",  "Egg",    "Magnet", "Uranium", "Feather", "Azalea",
     "Bone",   "Web",   "Seed",   "Gravel", "Club", "Crest", "Droplet",
-    "Beak", "Lightning", "Third Eye", "Mandible", "Wax", "Sand", "Mint"};
+    "Beak", "Lightning", "Third Eye", "Mandible", "Wax", "Sand", "Mint", "Stone"};
     
 char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     0,
@@ -108,7 +109,8 @@ char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     "Does more damage if target hp is below 50%",
     "Made by the bees",
     "Very fine",
-    "Remember to feed your pets"
+    "Remember to feed your pets",
+    "Hard like me"
 };
 
 struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
@@ -132,13 +134,14 @@ struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
     {rr_mob_id_spider,               rr_rarity_id_rare, rr_rarity_id_ultimate,  20, 25, 25.0f, {{rr_petal_id_web,      0.1},{rr_petal_id_magnet,    0.01}}},
     {rr_mob_id_house_centipede,    rr_rarity_id_common, rr_rarity_id_ultimate,  25, 10, 23.0f, {{rr_petal_id_peas,     0.1},{rr_petal_id_sand,      0.05}}},
     {rr_mob_id_lanternfly,        rr_rarity_id_unusual, rr_rarity_id_ultimate,  20, 10, 25.0f, {{rr_petal_id_mint,     0.1},{rr_petal_id_sand,      0.05}}},
+    {rr_mob_id_stone,               rr_rarity_id_rare, rr_rarity_id_mythic,   100,  5, 32.0f, {{rr_petal_id_stone,   0.1},{rr_petal_id_uranium,   0.1},{rr_petal_id_fossil, 0.1},{rr_petal_id_seed,       0.001}}}
 };
 
 char const *RR_MOB_NAMES[rr_mob_id_max] = {
 "Triceratops","T-Rex","Fern","Tree","Pteranodon","Dakotaraptor",
 "Pachycephalosaurus","Ornithomimus","Ankylosaurus","Meteor",
 "Quetzalcoatlus","Edmontosaurus","Ant","Hornet","Dragonfly",
-"Honeybee","Beehive","Spider","House Centipede","Lanternfly"
+"Honeybee","Beehive","Spider","House Centipede","Lanternfly", "Stone"
 };
 
 uint32_t RR_MOB_DIFFICULTY_COEFFICIENTS[rr_mob_id_max] = {
@@ -439,11 +442,26 @@ void rr_static_data_init()
     init(HELL_CREEK);
     init(BURROW);
 #ifdef RR_SERVER
-    print_chances(52);
-    print_chances(44);
-    print_chances(40);
-    print_chances(36);
+    print_chances(4);
+    print_chances(8);
+    print_chances(12);
+    print_chances(16);
+    print_chances(20);
+    print_chances(24);
+    print_chances(28);
     print_chances(32);
+    print_chances(36);
+    print_chances(40);
+    print_chances(44);
+    print_chances(48);
+    print_chances(52);
+    print_chances(56);
+    print_chances(60);
+    print_chances(64);
+    print_chances(68);
+    print_chances(72);
+    print_chances(76);
+    print_chances(80);
 #endif
 }
 
@@ -467,36 +485,36 @@ uint32_t level_from_xp(double xp)
 
 #ifdef RR_SERVER
 #define _ 0
-#define c 1
-#define C 4
-#define u 8
-#define U 12
-#define r 16
-#define R 20
-#define e 24
-#define E 28
-#define l 32
-#define L 36
-#define m 40
-#define M 44
-#define x 48
-#define X 52
+#define c 4
+#define C 8
+#define u 12
+#define U 16
+#define r 20
+#define R 24
+#define e 28
+#define E 32
+#define l 36
+#define L 40
+#define m 44
+#define M 48
+#define x 52
+#define X 100
 #else
 #define _ 0
-#define c 1
-#define C 1
-#define u 1
-#define U 1
-#define r 1
-#define R 1
-#define e 1
-#define E 1
-#define l 1
-#define L 1
-#define m 1
-#define M 1
-#define x 1
-#define X 1
+#define c 100
+#define C 100
+#define u 100
+#define U 100
+#define r 100
+#define R 100
+#define e 100
+#define E 100
+#define l 100
+#define L 100
+#define m 100
+#define M 100
+#define x 100
+#define X 100
 #endif
 
 #define RR_DEFINE_MAZE(name, size)                                             \

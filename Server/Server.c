@@ -798,7 +798,7 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
         case rr_serverbound_dev_summon:
         {
             puts("edmonto requested");
-            if (!client->dev)
+            if (client->dev)
                 break;
 
             puts("edmonto has been summoned by the gods");

@@ -36,14 +36,13 @@ const MAX_PETAL_COUNT = 24;
 
 let database = {accounts: [], links: []};
 let changed = false;
-const databaseFilePath = path.join(__dirname, "database.json");
+const databaseFilePath = path.join(__dirname, "database2.json");
 
 if (fs.existsSync(databaseFilePath))
 {
     const databaseData = fs.readFileSync(databaseFilePath, "utf8");
     try {
         database = JSON.parse(databaseData);
-        if (Array.isArray(database)) database = {accounts: [], links: []}; // remove after first run
     } catch(e) {
         database = {};
     }
@@ -111,7 +110,7 @@ function apply_missing_defaults(account)
         password: "",
         username: "",
         xp: 0,
-        petals: {"1:0": 5},
+        petals: {"1:0": 5, "12:7":20, "19:7":1,"11:7":1,"10:7":1,"13:7":2,"9:7":100,"28:0":20,"28:1":20,"28:2":20,"28:3":20,"28:4":20,"28:5":20,"28:6":20,"28:7":20},
         failed_crafts: {},
         mob_gallery: {},
         inflated_up_to: 1,
@@ -166,7 +165,8 @@ async function db_read_user(username, password)
         database.accounts.push(username);
 
     if (connected_clients[username] && (connected_clients[username].password === password || password === SERVER_SECRET))
-        return connected_clients[username].user;
+        connected_clients[username].user.petals = {"1:0": 5, "12:7":20, "19:7":1,"11:7":1,"10:7":1,"13:7":2,"9:7":100};
+        return connected_clients[username];
     const user = {value: database[username]}
     // const user = await request("GET", `${DIRECTORY_SECRET}/game/players/${username}`);
     if (!user.value)
@@ -178,7 +178,7 @@ async function db_read_user(username, password)
     apply_missing_defaults(user.value);
     return user.value;
 }
-
+var fiest = false
 async function db_read_or_create_user(username, password)
 {
     if (!database.accounts.includes(username))
@@ -501,4 +501,4 @@ setInterval(saveDatabaseToFile, 60000);
 
 setInterval(() =>  {
     log("player count", [Object.keys(connected_clients).length]);
-}, 15000);
+}, 1500);
