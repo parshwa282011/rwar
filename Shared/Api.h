@@ -19,9 +19,9 @@
 #include <Shared/Utilities.h>
 
 #ifdef RIVET_BUILD
-#define RR_BASE_API_URL "https://55554-debug-parshwa282011-rwar-2lv0t2chyfg.ws-us114.gitpod.io/"
+#define RR_BASE_API_URL "http://localhost:55554/"
 #else
-#define RR_BASE_API_URL "https://55554-debug-parshwa282011-rwar-2lv0t2chyfg.ws-us114.gitpod.io/"
+#define RR_BASE_API_URL "http://localhost:55554/"
 #endif
 #ifdef RR_SERVER
 #define RR_API_SECRET                                                          \
