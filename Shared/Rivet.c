@@ -29,9 +29,9 @@
 #include <Shared/cJSON.h>
 
 #ifdef RIVET_BUILD
-#define BASE_API_URL "https://rrolf.io/api/"
+#define BASE_API_URL "https://55554-debug-parshwa282011-rwar-2lv0t2chyfg.ws-us114.gitpod.io/"
 #else
-#define BASE_API_URL "http://localhost:55554/"
+#define BASE_API_URL "https://55554-debug-parshwa282011-rwar-2lv0t2chyfg.ws-us114.gitpod.io/"
 #endif
 
 #define RR_RIVET_CURL_PROLOGUE                                                 \
