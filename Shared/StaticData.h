@@ -126,7 +126,8 @@ enum rr_mob_id
     rr_mob_id_meteor,
     rr_mob_id_quetzalcoatlus,
     rr_mob_id_edmontosaurus,
-
+    rr_mob_id_stone,
+    
     rr_mob_id_ant,
     rr_mob_id_hornet,
     rr_mob_id_dragonfly,
@@ -136,7 +137,6 @@ enum rr_mob_id
     rr_mob_id_house_centipede,
     rr_mob_id_lanternfly,
 
-    rr_mob_id_stone,
     rr_mob_id_max
 };
 

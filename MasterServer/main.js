@@ -36,7 +36,7 @@ const MAX_PETAL_COUNT = 24;
 
 let database = {accounts: [], links: []};
 let changed = false;
-const databaseFilePath = path.join(__dirname, "database2.json");
+const databaseFilePath = path.join(__dirname, "database.json");
 
 if (fs.existsSync(databaseFilePath))
 {

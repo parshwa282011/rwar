@@ -38,7 +38,27 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
     {
         switch (id)
         {
+        case rr_petal_id_stone:
+            rr_renderer_set_fill(renderer,0xABB4BB);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_move_to(renderer, 25.0,25.0);
+            rr_renderer_line_to(renderer, -25.0,25.0);
+            rr_renderer_move_to(renderer, -25.0,-25.0);
+            rr_renderer_line_to(renderer, 25.0,-25.0);
+            rr_renderer_line_to(renderer, 25.0,25.0);
+            rr_renderer_fill(renderer);
+            rr_renderer_begin_path(renderer);
+            break;
         case rr_petal_id_none:
+            rr_renderer_set_fill(renderer,0xABB4BB);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_move_to(renderer, 25.0,25.0);
+            rr_renderer_line_to(renderer, -25.0,25.0);
+            rr_renderer_move_to(renderer, -25.0,-25.0);
+            rr_renderer_line_to(renderer, 25.0,-25.0);
+            rr_renderer_line_to(renderer, 25.0,25.0);
+            rr_renderer_fill(renderer);
+            rr_renderer_begin_path(renderer);
             break;
         case rr_petal_id_basic:
             rr_renderer_set_stroke(renderer, 0xffcfcfcf);

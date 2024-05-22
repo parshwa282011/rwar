@@ -116,3 +116,5 @@ void rr_oc_tile_3_draw(struct rr_renderer *);
 void rr_prop_fern_draw(struct rr_renderer *);
 void rr_prop_moss_draw(struct rr_renderer *);
 void rr_prop_water_lettuce_draw(struct rr_renderer *);
+
+void rr_stone_draw(struct rr_renderer *);
