@@ -50,15 +50,6 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_begin_path(renderer);
             break;
         case rr_petal_id_none:
-            rr_renderer_set_fill(renderer,0xABB4BB);
-            rr_renderer_begin_path(renderer);
-            rr_renderer_move_to(renderer, 25.0,25.0);
-            rr_renderer_line_to(renderer, -25.0,25.0);
-            rr_renderer_move_to(renderer, -25.0,-25.0);
-            rr_renderer_line_to(renderer, 25.0,-25.0);
-            rr_renderer_line_to(renderer, 25.0,25.0);
-            rr_renderer_fill(renderer);
-            rr_renderer_begin_path(renderer);
             break;
         case rr_petal_id_basic:
             rr_renderer_set_stroke(renderer, 0xffcfcfcf);
@@ -2146,4 +2137,9 @@ void rr_renderer_petal_cache_init()
         rr_renderer_context_state_free(&petal_cache, &state);
         rr_renderer_translate(&petal_cache, IMAGE_SIZE, 0);
     }
+    rr_renderer_context_state_init(&petal_cache, &state);
+    rr_renderer_scale(&petal_cache, IMAGE_SIZE / 50);
+    rr_renderer_draw_petal(&petal_cache, rr_petal_id_stone, 0);
+    rr_renderer_context_state_free(&petal_cache, &state);
+    rr_renderer_translate(&petal_cache, IMAGE_SIZE, 0);
 }
